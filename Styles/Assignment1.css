@@ -1,0 +1,49 @@
+h1 {font-family: 'Lakki Reddy', cursive; text-align: center;}
+h2 {font-family: 'Amatic SC', cursive; font-size: 22pt;}
+h3 {font-family: 'Amatic SC', cursive; text-align: left;}
+
+body {background-image: url("../images/SnowFlackBackground2.jpg")}
+#section1
+    {
+        display: none;
+        position: relative;
+        width: 600px;
+        left: 50%;
+        margin-left: -300px;
+        overflow: scroll;
+        background-color: #e6e6ff;
+        border: ridge;
+        border-color: #cc99ff;
+        border-width: thick;
+         text-align:  center;
+    }
+#section2
+    {
+        display: none;
+        position: relative;
+        width: 600px;
+        left: 50%;
+        margin-left: -300px;
+        overflow: scroll;
+        background-color: #e5ffff;
+        border: ridge;
+        border-color: #80ffff;
+        border-width: thick;
+        text-align: right;
+    }
+footer
+    {
+        font-family: 'Lakki Reddy', cursive;
+        clear: both;
+        margin: auto;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+    
+#snowondeck {padding: 5pt; width: 400px ; border: groove;
+    display: block; margin: auto;}
+    
+#angle {padding: 5pt; float: left; width: 200px; border: groove;
+    margin-left: 30px; margin-right: 5px; margin-top: auto;}
+#trees {padding: 5pt; float: right; width: 150px; border: groove;
+    margin-left: 30px; margin-right: 30px; margin-top: auto;}
