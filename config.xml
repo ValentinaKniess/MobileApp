@@ -6,7 +6,7 @@
         versionCode = "1"
         version     = "0.0.1" >    <!-- versionCode is optional and Android only -->
         
-        <name>Mobile App Assignment</name>
+        <name>Valentina's Mobile App</name>
         <description>
             Mobile App Assignment
         </description>
