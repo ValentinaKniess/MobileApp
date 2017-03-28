@@ -6,14 +6,14 @@
         versionCode = "1"
         version     = "0.0.1" >    <!-- versionCode is optional and Android only -->
         
-        <name>Mobile App Demonstration</name>
+        <name>Mobile App Assignment</name>
         <description>
-            Mobile App Demonstration
+            Mobile App Assignment
         </description>
         <author>
             Valentina M. Kniess
         </author>
-        <preference name="phonegap-version" value="cli-6.3.0" />
+        <preference name="phonegap-version" value="cli-6.5.0" />
         <plugin name="cordova-plugin-whitelist" source="npm" />
         <access origin="*" />
 </widget>

@@ -1,5 +1,5 @@
 h1 {font-family: 'Lakki Reddy', cursive; text-align: center;}
-h2 {font-family: 'Permanent Marker', cursive; font-size: 26pt;}
+h2 {font-family: 'Permanent Marker', cursive; font-size: 22pt;}
 h3 {font-family: 'Amatic SC', cursive; text-align: left;}
 h4 {font-family: 'Amatic SC', cursive; text-align: center; font-size: 16pt;}
 
@@ -8,7 +8,7 @@ body {background-image: url("../images/SnowFlackBackground2.jpg")}
     {
         display: none;
         position: relative;
-        width: 75%;
+        width: 80%;
         margin: 0 auto;  
         overflow: scroll;
         background-color: #e6e6ff;
@@ -21,7 +21,7 @@ body {background-image: url("../images/SnowFlackBackground2.jpg")}
     {
         display: none;
         position: relative;
-        width: 75%;
+        width: 80%;
         margin: 0 auto;      
         overflow: scroll;
         background-color: #e5ffff;
@@ -35,7 +35,7 @@ body {background-image: url("../images/SnowFlackBackground2.jpg")}
         font-family: 'Lakki Reddy', cursive;
         display: none;
         position: relative;
-        width: 75%;
+        width: 80%;
         margin: 0 auto;
         overflow: scroll;
         background-color: #ffffff;
