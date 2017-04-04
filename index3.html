@@ -20,9 +20,8 @@
             <option value="None">Please select an option.</option>
             <option value="Section 1">Customer list</option>
             <option value="Section 2">Order history</option>
-            <option value="Section 3">Update Customer Data</option>
-            <option value="Section 4">Modify an Order</option>
-            <option value="Section 5">About</option>
+            <option value="Section 3">Current Orders</option>
+            <option value="Section 4">About</option>
         </select>
     </section>
     <hr>
@@ -45,22 +44,21 @@
     </section>
     
     <section id="section3">
-        <h2>Update Customer Information</h2>
-        <br>
-        <label id="orderscurrent"></label>
+        <h2>Current Orders</h2>
+        <label>Order ID:</label>
         <input type="text" id="orderID" disabled="true">
         <br>
         <label>Customer Name:</label>
-        <input type="text" id="storename">
+        <input type="text" id="customername" disabled="true">
         <br>
         <label>Shipping Address:</label>
-        <input type="text" id="storeaddress">
+        <input type="text" id="customeraddress" disabled="true">
         <br>
         <label>City:</label>
-        <input type="text" id="storecity">
+        <input type="text" id="customercity" disabled="true">
         <br>
         <label>Postal Code:</label>
-        <input type="text" id="storepostcode">
+        <input type="text" id="customerpostcode" disabled="true">
         <br>
         
         <button onclick="CustomerList()">Go back to customer list</button>
@@ -72,43 +70,6 @@
     </section>
     
     <section id="section4">
-        <h2>Modify an Order</h2>
-        <br>
-        <label>Order Date:</label>
-        <input type="text" id="odate">
-        <br>
-        <label>Order ID:</label>
-        <input type="text" id="oID" disabled="true">
-        <br>       
-        <label>Shipping Address:</label>
-        <input type="text" id="streetaddress">
-        <br>
-        <label>City:</label>
-        <input type="text" id="city">
-        <br>
-        <label>Customer Name:</label>
-        <input type="text" id="name">
-        <br>
-        <label>Postal Code:</label>
-        <input type="text" id="zipcode">
-        <br>
-        <label>Ship Date:</label>
-        <input type="text" id="sdate">
-        <hr>
-        <label>Enter the order id:  </label>
-        <input type="text" id="orID">
-        <button onclick="GetOrder()">Retrieve order</button>
-        <br>
-        <button onclick="OrderUpdate()" >Update order</button>
-        <hr>
-        <button onclick="CustomerList()">Go back to customer list</button>
-        
-        
-        
-        
-    </section>
-    
-    <section id="section5">
         <br>
         App Creator
         <img src="images/BabushkhaWomanRound.jpg" id="BabushkaWoman">

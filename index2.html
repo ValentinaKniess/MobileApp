@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Module 2 Assignment</title>
+    <link rel="stylesheet" type="text/css" href="Styles/Assignment2.css" />
+    <script src="js/Assignment2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Lakki+Reddy|Permanent+Marker" rel="stylesheet">
+</head>
+
+<body>
+    
+    <header>
+        <h1>Module 2 Assignment</h1>
+        <hr>
+    </header>
+    <section id="title">
+        
+        <select onchange="MenuChoice(value)" id="menu">
+            <option value="None">Please select an option.</option>
+            <option value="Section 1">Customer list</option>
+            <option value="Section 2">Order history</option>
+            <option value="Section 3">About</option>
+        </select>
+    </section>
+    <hr>
+    
+    <section id="section1">
+        <h2>Customer List</h2>
+         <label id="customerlist"></label>
+    </section>
+    
+    <section id="section2">
+        <h2>Order History</h2>
+        <label id="orderhistory"></label>
+        <hr>
+        <button onclick="CustomerList()">Go back to customer list</button>
+        <hr>
+        <label>or enter the customer id:  </label>
+        <input type="text" id="customerid">
+        <br>
+        <button onclick="GetOrders()"id="orders">Retrieve order history</button>
+    </section>
+    
+    <section id="section3">
+        <br>
+        App Creator
+        <img src="images/BabushkhaWomanRound.jpg" id="BabushkaWoman">
+        Valentina M. Kniess
+        <h4>This application is an ongoing project<br>
+        Created for class IS-633, Mobile Applications<br>
+        Online MSMIS Program<br>
+        UAB</h4>
+        <br>        
+    </section>
+    
+    <footer>
+        Valentina Michella Kniess
+        <br>
+        val9@uab.edu
+    </footer>
+
+</body>
+</html>
+
+
