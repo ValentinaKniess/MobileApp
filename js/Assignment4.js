@@ -4,6 +4,7 @@ function MenuChoice(selection)
     document.getElementById("section2").style.display = "none";
     document.getElementById("section3").style.display = "none";
     document.getElementById("section4").style.display = "none";
+    document.getElementById("section6").style.display = "none";
     document.getElementById("section5").style.display = "none";
     switch (selection)
     {
@@ -21,8 +22,11 @@ function MenuChoice(selection)
         case "Section 4":
             document.getElementById("section4").style.display = "block";
             break;
+        case "Section 6":
+            document.getElementById("section6").style.display = "block";
+            break;
         case "Section 5":
-            document.getElementById("section5").style.display = "block";  //makes the 3rd section (about) visable
+            document.getElementById("section5").style.display = "block";  //makes the section (about) visable
             break;
         case "None":            //No menu item selected, so no section should be displayed
             break;
@@ -49,7 +53,12 @@ function ListCustomers()  //This sends a request to the getAllCustomers service 
        
         function GenerateOutput(result) //This function receives the data form the service and creates a table to display it
         {
-            var display = "<table><tr><th>Update</th><th>Customer ID</th><th>Company Name</th><th>Company City</th></tr>"; //Table Headings
+            var display = "<table><tr>" +
+                "<th>Update</th><th>Customer ID</th>" +
+                "<th>Company Name</th>" +
+                "<th>Company City</th>" +
+                "<th>Delete</th>" +
+                "</tr>"; //Table Headings
             var count = 0; //Count variable to loop
             var customerid = ""; //Variable to store the Customer ID
             var companyname = ""; //Variable to store the Company Name
@@ -63,7 +72,13 @@ function ListCustomers()  //This sends a request to the getAllCustomers service 
                   companyname += result.GetAllCustomersResult[count].CompanyName;
                   companyname +='</a>';
                   companycity = result.GetAllCustomersResult[count].City; //Assigns the City to a variable
-                  display += '<tr><td><button onclick="StoreInfo(' + "'" + customerid + "')" + '">Update Info</button></td><td>' + customerid + "</td><td>" + companyname + "</td><td>" + companycity + "</td></tr>"; //Creates a table row with button
+                  display += '<tr>' +
+                  '<td><button onclick="StoreInfo(' + "'" + customerid + "')" + '">Update Info</button></td>' +
+                  '<td>' + customerid + "</td>" +
+                  "<td>" + companyname + "</td>" +
+                  "<td>" + companycity + "</td>" +
+                  '<td><button onclick="DeleteCustomer(' + "'" + customerid + "')" + '">Delete</button></td>' +
+                  "</tr>"; //Creates a table row with button
             }
             display += "</table>"; //Closes the table HTML after table rows are added
             document.getElementById("customerlist").innerHTML = display; //Displays the table in the HTML page
@@ -80,9 +95,14 @@ function Orders(customerid) //Retrieves a list of items ordered by a particular 
     {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
         {
+            alert(JSON.stringify(xmlhttp.result));
               
             var output = JSON.parse(xmlhttp.responseText);
             GenerateOutput(output); 
+        }
+        else
+        {
+            alert("error");
         }
     }
     xmlhttp.open("GET", url, true);
@@ -147,8 +167,8 @@ function GenerateOutput(result)
 function StoreInfo(customerid)
 {
     var xmlhttp = new XMLHttpRequest();
-    var url = "https://student.business.uab.edu/jsonwebservice/service1.svc/GetCustomerOrderInfo/";
-    url += customerid;
+    var url = "https://student.business.uab.edu/jsonwebservice/service1.svc/GetCustomerOrderInfo/" + customerid;
+    //url += customerid;
 
     xmlhttp.onreadystatechange = function()
     {
@@ -169,6 +189,26 @@ function StoreInfo(customerid)
     xmlhttp.send();
 }
 
+function DeleteCustomer(customerid)
+{
+    var xmlhttp = new XMLHttpRequest();
+    var url = "https://student.business.uab.edu/jsonwebservice/service1.svc/DeleteCustomer/";
+    url += customerid;
+
+    xmlhttp.onreadystatechange = function()
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {
+            console.log(xmlhttp.status);
+
+            MenuChoice("Section 1");
+        } else {
+            console.log(JSON.stringify(xmlhttp));
+        }
+    }
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+}
 
 //This function executes an update operation on the Store Name and Store City
 function CustomerUpdate()
@@ -183,8 +223,11 @@ function CustomerUpdate()
             var error = result.Exception;
             OperationResult(outcome, error); //Calls the funciton that displays the result in an alert message
             MenuChoice("Section 1"); //Calls the menu choice function to display the store list
+        } else
+        {
+            alert("error");
         }
-    }
+    };
         var url = "https://student.business.uab.edu/jsonwebservice/service1.svc/UpdateOrderAddress";
         var orderid = Number(document.getElementById("orderID").value);
         var shipaddress = document.getElementById("storeaddress").value;
@@ -248,6 +291,9 @@ function GetOrder()
             document.getElementById("name").value = output[0].ShipName;
             document.getElementById("zipcode").value = output[0].ShipPostcode;
             document.getElementById("sdate").value = output[0].ShippedDate;
+        } else
+        {
+            alert('Server Error');
         }
     }
     //Initiate the server request
@@ -255,5 +301,51 @@ function GetOrder()
     objRequest.send();
 }
 
+//  Create Customer 
+
+function CreateCustomer()
+{
+     var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function()
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {
+            var result = JSON.parse(xmlhttp.responseText);
+            alert(JSON.stringify(xmlhttp.responseText));
+            var outcome = result.WasSuccessful;
+            var error = result.Exception;
+            OperationResult(outcome, error); //Calls the funciton that displays the result in an alert message
+            MenuChoice("Section 1"); //Calls the menu choice function to display the store list
+        } else
+        {
+            alert(xmlhttp.result);
+        }
+    }
+        var url = "https://student.business.uab.edu/jsonwebservice/service1.svc/CreateCustomer/";
+        var createId = document.getElementById("createId").value;
+
+        var createName = document.getElementById("createName").value;
+        var createCity = document.getElementById("createCity").value;
+
+        if(!createId || createId.length != '5')
+        {
+            alert("Please Enter only 5 letter in CustomID box");
+        }
+        else if(!createName)
+        {
+            alert("Please Enter Customer Company Name");
+        } else if(!createCity)
+        {
+            alert("Please Enter Customer City");
+        } else
+        {
+               
+        var parameters = '{"CustomerID":' + createId + ',"CompanyName":"' + createName + '","City":"' + createCity + '"}'; //Creates the JSON string to be sent for the update operation
+        xmlhttp.open("POST", url, true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send(parameters);
+
+    }
+}
 
 //Rest of my code goes wacky (for update customer) it prevents the rest of the app from working, so code is in a seperate file

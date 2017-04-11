@@ -57,13 +57,26 @@ function ListCustomers()  //This sends a request to the getAllCustomers service 
             
             for(count = 0; count < result.GetAllCustomersResult.length; count ++) //Loop for creating table rows
             {
-                //Anchor link: <a href="javascript:function("parameter");"> 
-                  customerid = result.GetAllCustomersResult[count].CustomerID; //Assigns the Customer ID to a variable
-                  companyname ='<a href="javascript:Orders('+"'"+customerid	+"');"+'">';  //Assign hyperlink and store id
-                  companyname += result.GetAllCustomersResult[count].CompanyName;
-                  companyname +='</a>';
-                  companycity = result.GetAllCustomersResult[count].City; //Assigns the City to a variable
-                  display += '<tr><td><button onclick="StoreInfo(' + "'" + customerid + "')" + '">Update Info</button></td><td>' + customerid + "</td><td>" + companyname + "</td><td>" + companycity + "</td></tr>"; //Creates a table row with button
+                {
+                    if (count%2==0)
+                    {
+                        rowid="evenrow";
+                    }
+                    else
+                    {
+                        rowid="oddrow";
+                    }
+                }
+                //Anchor link: <a href="javascript:function("parameter");">
+                //Add buttons to update or delete a store
+                    customerid ='<button onclick="DeleteCustomer(' + result.GetAllCustomersResult[count].CustomerID +')">Delete Customer</button>';  //Create a button to delete customer
+                    Customerid = '<button onclick="StoreInfo(' + result.GetAllCustomersResult[count].CustomerID+')">Update Customer Address</button>';  //Create a button to update customer's address
+                    customerid = result.GetAllCustomersResult[count].CustomerID; //Assigns the Customer ID to a variable
+                    companyname ='<a href="javascript:Orders('+"'"+customerid	+"');"+'">';  //Assign hyperlink and store id
+                    companyname += result.GetAllCustomersResult[count].CompanyName;
+                    companyname +='</a>';
+                    companycity = result.GetAllCustomersResult[count].City; //Assigns the City to a variable
+                    display += "<tr id=" + rowid + "><td>" + customerid +"</td><td>" + companyname + "</td><td>" + companycity + "</td></tr>"; //Creates a table row with buttons
             }
             display += "</table>"; //Closes the table HTML after table rows are added
             document.getElementById("customerlist").innerHTML = display; //Displays the table in the HTML page
@@ -156,11 +169,11 @@ function StoreInfo(customerid)
         {
             var output = JSON.parse(xmlhttp.responseText);
             
-            document.getElementById("orderID").value = result.GetCustomerOrderInfo[0].OrderID;
-            document.getElementById("storeaddress").value = result.GetCustomerOrderInfo[0].ShipAddress;
-            document.getElementById("storecity").value = result.GetCustomerOrderInfo[0].ShipCity;
-            document.getElementById("storename").value = result.GetCustomerOrderInfo[0].ShipName;
-            document.getElementById("storepostcode").value = result.GetCustomerOrderInfo[0].ShipPostcode;
+            document.getElementById("orderID").value = output[0].OrderID;
+            document.getElementById("storeaddress").value = output[0].ShipAddress;
+            document.getElementById("storecity").value = output[0].ShipCity;
+            document.getElementById("storename").value = output[0].ShipName;
+            document.getElementById("storepostcode").value = output[0].ShipPostcode;
             
             MenuChoice("Section 3");
         }
