@@ -2,16 +2,16 @@
 
 <html>
 <head>
-    <title>Module 3 Assignment</title>
-    <link rel="stylesheet" type="text/css" href="Styles/Assignment3.css" />
-    <script src="js/Assignment3.js"></script>
+    <title>Module 4 Assignment</title>
+   <link rel="stylesheet" type="text/css" href="Styles/Assignment4.css" />
+    <script src="js/Assignment4.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Lakki+Reddy|Permanent+Marker" rel="stylesheet">
 </head>
 
 <body>
     
     <header>
-        <h1>Module 3 Assignment</h1>
+        <h1>Module 4 Assignment</h1>
         <hr>
     </header>
     <section id="title">
@@ -22,17 +22,18 @@
             <option value="Section 2">Order history</option>
             <option value="Section 3">Update Customer Data</option>
             <option value="Section 4">Modify an Order</option>
+            <option value="Section 6">Add a Customer</option>
             <option value="Section 5">About</option>
         </select>
     </section>
     <hr>
     
-    <section id="section1">
+    <section id="section1" class="section">
         <h2>Customer List</h2>
          <label id="customerlist"></label>
     </section>
     
-    <section id="section2">
+    <section id="section2" class="section">
         <h2>Order History</h2>
         <label id="orderhistory"></label>
         <hr>
@@ -44,7 +45,7 @@
         <button onclick="GetOrders()"id="orders">Retrieve order history</button>
     </section>
     
-    <section id="section3">
+    <section id="section3" class="section">
         <h2>Update Customer Information</h2>
         <br>
         <label id="orderscurrent"></label>
@@ -71,7 +72,7 @@
         
     </section>
     
-    <section id="section4">
+    <section id="section4" class="section">
         <h2>Modify an Order</h2>
         <br>
         <label>Order Date:</label>
@@ -102,13 +103,10 @@
         <button onclick="OrderUpdate()" >Update order</button>
         <hr>
         <button onclick="CustomerList()">Go back to customer list</button>
-        
-        
-        
-        
+       
     </section>
     
-    <section id="section5">
+    <section id="section5" class="section">
         <br>
         App Creator
         <img src="images/BabushkhaWomanRound.jpg" id="BabushkaWoman">
@@ -119,14 +117,29 @@
         UAB</h4>
         <br>        
     </section>
+
+    <section id="section6" class="section">
+        <br>
+        <h2>Add Customer</h2>
+        <br>
+        <label>CustomerID</label>
+        <input type="text" id="createId" style="text-transform: uppercase" maxlength="5">
+        <br>
+        <label>Customer Company Name</label>
+        <input type="text" id="createName">
+        <br>       
+        <label>Customer City</label>
+        <input type="text" id="createCity">
+        <br>
+        <button onclick="CreateCustomer()">Create Customer</button>            
+    </section>
     
     <footer>
         Valentina Michella Kniess
         <br>
         val9@uab.edu
     </footer>
-
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
-
-
