@@ -16,4 +16,9 @@
         <preference name="phonegap-version" value="cli-6.5.0" />
         <plugin name="cordova-plugin-whitelist" source="npm" />
         <access origin="*" />
+        
+        <plugin name="cordova-plugin-geolocation" spec="~2.4.2" />
+        <plugin name="cordova-plugin-splashscreen" />
+        <icon src="icon.png" />
+        <splash src="splash.png" />
 </widget>
