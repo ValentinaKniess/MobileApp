@@ -57,12 +57,7 @@ function ListCustomers()  //This sends a request to the getAllCustomers service 
        
         function GenerateOutput(result) //This function receives the data form the service and creates a table to display it
         {
-            var display = "<table><tr>" +
-                "<th>Update</th><th>Customer ID</th>" +
-                "<th>Company Name</th>" +
-                "<th>Company City</th>" +
-                "<th>Delete</th>" +
-                "</tr>"; //Table Headings
+            var display = "<table><tr><th>Update</th><th>Customer ID</th><th>Company Name</th><th>Company City</th><th>Delete</th></tr>"; //Table Headings
             var count = 0; //Count variable to loop
             var customerid = ""; //Variable to store the Customer ID
             var companyname = ""; //Variable to store the Company Name
@@ -76,13 +71,8 @@ function ListCustomers()  //This sends a request to the getAllCustomers service 
                   companyname += result.GetAllCustomersResult[count].CompanyName;
                   companyname +='</a>';
                   companycity = result.GetAllCustomersResult[count].City; //Assigns the City to a variable
-                  display += '<tr>' +
-                  '<td><button onclick="StoreInfo(' + "'" + customerid + "')" + '">Update Info</button></td>' +
-                  '<td>' + customerid + "</td>" +
-                  "<td>" + companyname + "</td>" +
-                  "<td>" + companycity + "</td>" +
-                  '<td><button onclick="DeleteCustomer(' + "'" + customerid + "')" + '">Delete</button></td>' +
-                  "</tr>"; //Creates a table row with button
+                  display += '<tr><td><button onclick="StoreInfo(' + "'" + customerid + "')" + '">Update Info</button></td><td>' + customerid + "</td><td>" + companyname + "</td><td>" + companycity + '<td><button onclick="DeleteCustomer(' + "'" + customerid + "')" + '">Delete</button></td></tr>';
+                  
             }
             display += "</table>"; //Closes the table HTML after table rows are added
             document.getElementById("customerlist").innerHTML = display; //Displays the table in the HTML page
@@ -195,23 +185,24 @@ function StoreInfo(customerid)
 
 function DeleteCustomer(customerid)
 {
-    var xmlhttp = new XMLHttpRequest();
+    var objRequest = new XMLHttpRequest();
     var url = "https://student.business.uab.edu/jsonwebservice/service1.svc/DeleteCustomer/";
     url += customerid;
 
-    xmlhttp.onreadystatechange = function()
+    //Checking for change event....Checking for AJAX operation return
+    objRequest.onreadystatechange = function()
     {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+    if (objRequest.readyState == 4 && objRequest.status == 200)
         {
-            console.log(xmlhttp.status);
-
-            MenuChoice("Section 1");
-        } else {
-            console.log(JSON.stringify(xmlhttp));
+            var result = JSON.parse(objRequest.responseText);
+            DeleteResult(result);
         }
     }
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
+    
+    //Start AJAX request
+    objRequest.open("GET", url, true);
+    objRequest.send();
+    MenuChoice("Section 1");
 }
 
 //This function executes an update operation on the Store Name and Store City
@@ -247,28 +238,7 @@ function CustomerUpdate()
         xmlhttp.send(parameters);
 }
 
-//Function that displays the result of an operation that adds, deletes, or updates data
-//The function is invoked from other functions
-function OperationResult(success, exception)
-{
-    switch (success)
-    {
-        case 1:
-            alert("The operation was successful");
-            break;
-        case 0:
-            alert("The operation was not successful:\ "+ exception);
-            break;
-        case -2:
-            alert("The operation was not successful because the data string supplied could not be deserialized into the service object.");
-            break;
-        case -3:
-            alert("The operation was not successful because a record with the supplied Order ID could not be found");
-            break;
-        default:
-            alert("The operation code returned is not identifiable.");
-    }
-}
+
 
 //GOOD AFTER HERE...........THIS SEEMS TO WORK!!!!!!
 //Function to retrieve a particular order
@@ -309,48 +279,45 @@ function GetOrder()
 
 function CreateCustomer()
 {
-     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function()
+    var objRequest =new XMLHttpRequest ();
+    var url = "https://student.business.uab.edu/jsonwebservice/service1.svc/CreateCustomer";
+    //collect client input from the webpage
+    var create_Id = document.getElementById("createId").value;
+    var create_Name = document.getElementById("createName").value;
+    var create_City = document.getElementById("createCity").value;
+    
+    //create the parameter string (how it must be formatted)
+    var storenew = '{"CustomerID":"'+ create_Id +'","CompanyName":"'+create_Name +'","City":"'+ create_City +'"}';
+    
     {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        if (objRequest.readyState == 4 && objRequest.status == 200)
         {
-            var result = JSON.parse(xmlhttp.responseText);
-            alert(JSON.stringify(xmlhttp.responseText));
-            var outcome = result.WasSuccessful;
-            var error = result.Exception;
-            OperationResult(outcome, error); //Calls the funciton that displays the result in an alert message
-            MenuChoice("Section 1"); //Calls the menu choice function to display the store list
-        } else
-        {
-            alert(xmlhttp.result);
+            var result = JSON.parse(objRequest.responseText);
+            OperationResult(result);
+            
         }
     }
-        var url = "https://student.business.uab.edu/jsonwebservice/service1.svc/CreateCustomer/";
-        var createId = document.getElementById("createId").value;
+     //Start AJAX request
+    objRequest.open("POST", url, true);
+    objRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    objRequest.send(storenew);
+    MenuChoice("Section 1")
+}
 
-        var createName = document.getElementById("createName").value;
-        var createCity = document.getElementById("createCity").value;
-
-        if(!createId || createId.length != '5')
-        {
-            alert("Please Enter only 5 letter in CustomID box");
-        }
-        else if(!createName)
-        {
-            alert("Please Enter Customer Company Name");
-        } else if(!createCity)
-        {
-            alert("Please Enter Customer City");
-        } else
-        {
-               
-        var parameters = '{"CustomerID":' + createId + ',"CompanyName":"' + createName + '","City":"' + createCity + '"}'; //Creates the JSON string to be sent for the update operation
-        xmlhttp.open("POST", url, true);
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.send(parameters);
-
+function OperationResult(output)
+{
+    if (output.WasSuccessful ==1)
+    {
+        document.getElementById("result").innerHTML = "Store successfully added!";
+    }
+    else
+    {
+        document.getElementById("result").innerHTML = "The operation was NOT successful!" + "<br>" + output.Exception;
     }
 }
+    
+    
+
 
 //Code for update customer prevents the rest of the app from working, so code is in a seperate file
 

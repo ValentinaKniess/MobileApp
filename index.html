@@ -114,13 +114,17 @@
         <label>CustomerID</label>
         <input type="text" id="createId" style="text-transform: uppercase" maxlength="5">
         <br>
+        <label class="example"> The customer ID must consist of 5 capital letters.</label>
+        <br>
         <label>Customer Company Name</label>
         <input type="text" id="createName">
         <br>       
         <label>Customer City</label>
         <input type="text" id="createCity">
         <br>
-        <button onclick="CreateCustomer()">Create Customer</button>            
+        <button onclick="CreateCustomer()">Create Customer</button>
+        <br>
+        <label id="result"></label>
     </section>
     
     <section id="section7" class="section">
