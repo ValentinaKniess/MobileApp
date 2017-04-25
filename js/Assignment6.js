@@ -104,8 +104,9 @@ function PickContact()
 }
 
 //function to search for contact
-function SearchContacts()
+function SearchContacts(){
 {
+    
     var options = new ContactFindOptions();
     options.filter = document.getElementById("lastname").value;
     options.multiple = true;
@@ -124,7 +125,7 @@ function onSuccess(contacts)
     document.getElementById("contactsearchresults").style.visibility = "visible";
     document.getElementById("contactsearchresults").innerHTML = contactinfo;
 }
-
+}
 
 
 
