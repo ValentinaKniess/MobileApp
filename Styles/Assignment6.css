@@ -141,4 +141,4 @@ table, th, td {border: 1px solid black; margin: auto; background-color: #99bbff;
         margin: 0;
         padding: 0;
       }
-img {float: left; height: auto; width: auto; box-shadow: 10px 10px 5px 5px;}
+#snapshot {float: left; height: auto; width: auto; box-shadow: 10px 10px 5px 5px;}
