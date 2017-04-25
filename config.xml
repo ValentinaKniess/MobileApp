@@ -18,7 +18,7 @@
         <access origin="*" />
         
         <plugin name="cordova-plugin-camera" source="npm" />
-        <plugin name="cordova-pluging-contacts" source="npm" />
+        <plugin name="cordova-plugin-contacts" source="npm" />
         
         <plugin name="cordova-plugin-geolocation" spec="~2.4.2" />
         <plugin name="cordova-plugin-splashscreen" />
