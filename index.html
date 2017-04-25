@@ -168,7 +168,7 @@
         <br>
         <button onclick="CapturePhoto()">Take Picture</button>
         <br>
-        <img id="snapshot" src="" />
+        <img id="snapshot" src="imageURI" />
         <br>
         <br>
     </section>
@@ -179,9 +179,14 @@
         <br>
         <button onclick="PickContact()">Pick A Contact</button>
         <br>
+        <label>or search by last name:  </label>
+        <input type="text" id="lastname">
+        <br>
+        <button onclick="GetOrders()"id="orders">Retrieve order history</button>
         <br>
         <label>Contact Name: </label>
         <label id="contactname"></label>
+        <br>
         <br>
         <br>
     </section>
