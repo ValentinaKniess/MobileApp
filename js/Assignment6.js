@@ -121,7 +121,7 @@ function onSuccess(contacts)
     {
         contactinfo += contacts[count].name.givenName + " " + contacts[count].name.familyName + "<br>";
     }
-//document.getElementById("contactsearchresults").style.visibility = "visible";
+    document.getElementById("contactsearchresults").style.visibility = "visible";
     document.getElementById("contactsearchresults").innerHTML = contactinfo;
 }
 
