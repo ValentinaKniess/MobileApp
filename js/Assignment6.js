@@ -118,7 +118,7 @@ function SearchContacts()
 
     function onSuccess(contacts)
     {
-        alert('Found ' + contacts.length + ' ' + displayName );
+        alert('Found ' + contacts.length + ' contacts with that name.');
     };
 
     function onError(contactError)
