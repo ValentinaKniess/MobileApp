@@ -59,10 +59,9 @@ function CapturePhoto()
 function onSuccess(imageURI)
 {
     var picdisplay = document.getElementById("snapshot");
-    pickdisplay.style.display = 'block';
-    pickdisplay.src = imageURI; //Assigns the picture to the image source property of the image on the web page
-    
-    document.getElementById("picture").innerHTML = picdisplay;
+    picdisplay.style.visibility = "visible";
+    picdisplay.style.display = "block";
+    picdisplay.src = imageURI; //Assigns the picture to the image source property of the image on the web page
 }
 //This function displays an error message if a picture is not returned
 function onFail(message)
