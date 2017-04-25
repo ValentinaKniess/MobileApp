@@ -61,6 +61,8 @@ function onSuccess(imageURI)
     var picdisplay = document.getElementById("snapshot");
     pickdisplay.style.display = 'block';
     pickdisplay.src = imageURI; //Assigns the picture to the image source property of the image on the web page
+    
+    document.getElementById("picture").innerHTML = picdisplay;
 }
 //This function displays an error message if a picture is not returned
 function onFail(message)
