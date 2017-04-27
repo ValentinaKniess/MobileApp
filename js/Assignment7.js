@@ -78,13 +78,7 @@ function socialsharingDemo() {
   });
 }
 
-function socialsharingSMSDemo() {
-  window.plugins.socialsharing.shareViaSMS("message", "+31650298955", function(){alert("ok")}, function(e){alert("error: " + e)});
-}
 
-function socialsharingFacebookDemo() {
-  window.plugins.socialsharing.shareViaFacebook("message", null, null, function(){alert("ok")}, function(e){alert("error: " + e)});
-}
 
 //Function that invokes device camera app and captures output from the camera app
 function CapturePhoto()
