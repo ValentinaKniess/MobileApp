@@ -62,7 +62,14 @@ function MenuChoice(selection)
         //The onFail parameter is the function that is called when no picture is returned
         //The other parameters indicate how the picture is to be handled
     }
-    //SocialShare app
+    function onSuccess(imageURI)
+    {
+        var picdisplay = document.getElementById("snapshot");
+        picdisplay.style.visibility = "visible";
+        picdisplay.style.display = "block";
+        picdisplay.src = imageURI; //Assigns the picture to the image source property of the image on the web page
+    }
+        //SocialShare app
     function socialsharingDemo()
     {
         window.plugins.socialsharing.available(function(isAvailable)
