@@ -70,7 +70,7 @@ function MenuChoice(selection)
         thumbnaildisplay.src = imageURI; //Assigns the picture to the image source property of the image on the web page
     }
         //SocialShare app
-    function socialsharingDemo()
+    function socialshare()
     {
         window.plugins.socialsharing.available(function(isAvailable)
         {
@@ -83,7 +83,7 @@ function MenuChoice(selection)
         //      window.plugins.socialsharing.share('test', null, 'data:image/png;base64,R0lGODlhDAAMALMBAP8AAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUKAAEALAAAAAAMAAwAQAQZMMhJK7iY4p3nlZ8XgmNlnibXdVqolmhcRQA7', null, function(e){alert("success: " + e)}, function(e){alert("error: " + e)});
                 var sub = document.getElementById("subject").value;
                 var mesg = document.getElementById("message").value;
-                window.plugins.socialsharing.share(mesg, sub, imagURI, null, function(){alert("sent!")}, function(e){alert("error: " + e)});
+                window.plugins.socialsharing.share(mesg, sub, thumbnaildisplay, null, function(){alert("sent!")}, function(e){alert("error: " + e)});
         // alternative usage:
 
         // 1) a local image from anywhere else (if permitted):
