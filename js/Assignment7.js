@@ -83,7 +83,7 @@ function MenuChoice(selection)
         //      window.plugins.socialsharing.share('test', null, 'data:image/png;base64,R0lGODlhDAAMALMBAP8AAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUKAAEALAAAAAAMAAwAQAQZMMhJK7iY4p3nlZ8XgmNlnibXdVqolmhcRQA7', null, function(e){alert("success: " + e)}, function(e){alert("error: " + e)});
                 var sub = document.getElementById("subject").value;
                 var mesg = document.getElementById("message").value;
-                var pic = imageURI;
+                var pic = FILE_URI;
                 window.plugins.socialsharing.share(mesg, sub, pic, null, function(){alert("sent!")}, function(e){alert("error: " + e)});
         // alternative usage:
 
