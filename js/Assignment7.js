@@ -55,7 +55,7 @@ function MenuChoice(selection)
 {//Taking a picture and sharing it on the SocialShare app
     
     //Function that invokes device camera app and captures output from the camera app
-    function CapturePhoto()
+    function CapturePic()
     {
         navigator.camera.getPicture(onSuccess, onFail, { quality: 20, destinationtype: destinationtype.FILE_URI, saveToPhotoAlbum: true });
         //The onSuccess parameter is the function that is called when the camera app operates successfully
@@ -64,10 +64,10 @@ function MenuChoice(selection)
     }
     function onSuccess(imageURI)
     {
-        var picdisplay = document.getElementById("snapshot");
-        picdisplay.style.visibility = "visible";
-        picdisplay.style.display = "block";
-        picdisplay.src = imageURI; //Assigns the picture to the image source property of the image on the web page
+        var thumbnaildisplay = document.getElementById("thumbnail");
+        thumbnaildisplay.style.visibility = "visible";
+        thumbnaildisplay.style.display = "block";
+        thumbnaildisplay.src = imageURI; //Assigns the picture to the image source property of the image on the web page
     }
         //SocialShare app
     function socialsharingDemo()
