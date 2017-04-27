@@ -1,0 +1,159 @@
+h1 {font-family: 'Lakki Reddy', cursive; text-align: center;}
+h2 {font-family: 'Permanent Marker', cursive; font-size: 22pt;}
+h3 {font-family: 'Amatic SC', cursive; text-align: left;}
+h4 {font-family: 'Amatic SC', cursive; text-align: center; font-size: 16pt;}
+.example{font-style: italic; color: #ff9999;}
+
+body {background-image: url("../images/SnowFlackBackground2.jpg")}
+#section1
+    {
+        display: none;
+        position: relative;
+        width: 80%;
+        margin: 0 auto;  
+        overflow: scroll;
+        background-color: #e6e6ff;
+        border: ridge;
+        border-color: #cc99ff;
+        border-width: thick;
+         text-align:  center;
+    }
+#section2
+    {
+        display: none;
+        position: relative;
+        width: 80%;
+        margin: 0 auto;      
+        overflow: scroll;
+        background-color: #e5ffff;
+        border: ridge;
+        border-color: #80ffff;
+        border-width: thick;
+        text-align: center;
+    }
+#section3
+    {
+        display: none;
+        position: relative;
+        width: 80%;
+        margin: 0 auto;      
+        overflow: scroll;
+        background-color: #e5ffff;
+        border: ridge;
+        border-color: #80ffff;
+        border-width: thick;
+        text-align: center;
+    }   
+#section4
+    {
+        display: none;
+        position: relative;
+        width: 80%;
+        margin: 0 auto;      
+        overflow: scroll;
+        background-color: #e5ffff;
+        border: ridge;
+        border-color: #80ffff;
+        border-width: thick;
+        text-align: center;
+    }
+#section6
+    {
+        display: none;
+        position: relative;
+        width: 80%;
+        margin: 0 auto;      
+        overflow: scroll;
+        background-color: #e5ffff;
+        border: ridge;
+        border-color: #80ffff;
+        border-width: thick;
+        text-align: center;
+    }
+#section7
+    {
+        display: none;
+        position: relative;
+        width: 80%;
+        margin: 0 auto;      
+        overflow: scroll;
+        background-color: #e5ffff;
+        border: ridge;
+        border-color: #80ffff;
+        border-width: thick;
+        text-align: center;
+    }
+#section8
+    {
+        display: none;
+        position: relative;
+        width: 80%;
+        margin: 0 auto;      
+        overflow: scroll;
+        background-color: #e5ffff;
+        border: ridge;
+        border-color: #80ffff;
+        border-width: thick;
+        text-align: center;
+    }
+#section9
+    {
+        display: none;
+        position: relative;
+        width: 80%;
+        margin: 0 auto;      
+        overflow: scroll;
+        background-color: #e5ffff;
+        border: ridge;
+        border-color: #80ffff;
+        border-width: thick;
+        text-align: center;
+    }
+    
+#section10
+    {
+        display: none;
+        position: relative;
+        width: 80%;
+        margin: 0 auto;      
+        overflow: scroll;
+        background-color: #e5ffff;
+        border: ridge;
+        border-color: #80ffff;
+        border-width: thick;
+        text-align: center;
+    }
+    
+#section5
+    {
+        font-family: 'Lakki Reddy', cursive;
+        display: none;
+        position: relative;
+        width: 80%;
+        margin: 0 auto;
+        overflow: scroll;
+        background-color: #ffffff;
+        border: ridge;
+        border-color: #cc99ff;
+        border-width: thick;
+         text-align:  center;
+    }    
+footer
+    {
+        font-family: 'Lakki Reddy', cursive;
+        clear: both;
+        margin: auto;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+    
+table, th, td {border: 1px solid black; margin: auto; background-color: #99bbff;}
+    
+#BabushkaWoman  {padding: 5pt; width: 200px ;
+    display: block; margin: auto;}
+ #map { height: 70%;
+        width: 70%;
+        margin: 0;
+        padding: 0;
+      }
+#snapshot {height: 40%; width: 40%; margin-left: auto; margin-right: auto; margin-bottom: 25px; visibility: hidden; display: none;}

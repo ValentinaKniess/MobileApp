@@ -20,6 +20,8 @@
         <plugin name="cordova-plugin-camera" source="npm" />
         <plugin name="cordova-plugin-contacts" source="npm" />
         
+        <plugin name="cordova-plugin-x-socialsharing" source="npm" />
+        
         <plugin name="cordova-plugin-geolocation" spec="~2.4.2" />
         <plugin name="cordova-plugin-splashscreen" />
         <preference name="SplashScreenDelay" value="6000" />
