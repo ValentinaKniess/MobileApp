@@ -52,32 +52,45 @@ function MenuChoice(selection)
 }
 
 
-//SocialShare app
-function socialsharingDemo() {
-  window.plugins.socialsharing.available(function(isAvailable) {
-    if (isAvailable) {
-      // use a local image from inside the www folder:
-//      window.plugins.socialsharing.share('Some text', 'Some subject', null, 'http://www.nu.nl');
-//      window.plugins.socialsharing.share('Some text');
-
-//      window.plugins.socialsharing.share('test', null, 'data:image/png;base64,R0lGODlhDAAMALMBAP8AAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUKAAEALAAAAAAMAAwAQAQZMMhJK7iY4p3nlZ8XgmNlnibXdVqolmhcRQA7', null, function(e){alert("success: " + e)}, function(e){alert("error: " + e)});
-      var sub = document.getElementById("subject").value;
-      var mesg = document.getElementById("message").value;
-      window.plugins.socialsharing.share(mesg, sub, 'https://www.google.nl/images/srpr/logo11w.png', null, function(){alert("ok")}, function(e){alert("error: " + e)});
-      // alternative usage:
-
-      // 1) a local image from anywhere else (if permitted):
-      // window.plugins.socialsharing.share('Some text', 'http://domain.com', '/Users/username/Library/Application Support/iPhone/6.1/Applications/25A1E7CF-079F-438D-823B-55C6F8CD2DC0/Documents/.nl.x-services.appname/pics/img.jpg');
-
-      // 2) an image from the internet:
-//      window.plugins.socialsharing.share('Some text', "Some subject', 'http://domain.com', 'http://domain.com/image.jpg');
-
-      // 3) text and link:
-//      window.plugins.socialsharing.share('Some text and a link', '', '', 'http://www.nu.nl');
+{//Taking a picture and sharing it on the SocialShare app
+    
+    //Function that invokes device camera app and captures output from the camera app
+    function CapturePhoto()
+    {
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 20, destinationtype: destinationtype.FILE_URI, saveToPhotoAlbum: true });
+        //The onSuccess parameter is the function that is called when the camera app operates successfully
+        //The onFail parameter is the function that is called when no picture is returned
+        //The other parameters indicate how the picture is to be handled
     }
-  });
-}
+    //SocialShare app
+    function socialsharingDemo()
+    {
+        window.plugins.socialsharing.available(function(isAvailable)
+        {
+            if (isAvailable)
+            {
+             // use a local image from inside the www folder:
+        //      window.plugins.socialsharing.share('Some text', 'Some subject', null, 'http://www.nu.nl');
+        //      window.plugins.socialsharing.share('Some text');
 
+        //      window.plugins.socialsharing.share('test', null, 'data:image/png;base64,R0lGODlhDAAMALMBAP8AAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUKAAEALAAAAAAMAAwAQAQZMMhJK7iY4p3nlZ8XgmNlnibXdVqolmhcRQA7', null, function(e){alert("success: " + e)}, function(e){alert("error: " + e)});
+                var sub = document.getElementById("subject").value;
+                var mesg = document.getElementById("message").value;
+                window.plugins.socialsharing.share(mesg, sub, imagURI, null, function(){alert("sent!")}, function(e){alert("error: " + e)});
+        // alternative usage:
+
+        // 1) a local image from anywhere else (if permitted):
+            // window.plugins.socialsharing.share('Some text', 'http://domain.com', '/Users/username/Library/Application Support/iPhone/6.1/Applications/25A1E7CF-079F-438D-823B-55C6F8CD2DC0/Documents/.nl.x-services.appname/pics/img.jpg');
+
+         // 2) an image from the internet:
+        //      window.plugins.socialsharing.share('Some text', "Some subject', 'http://domain.com', 'http://domain.com/image.jpg');
+
+        // 3) text and link:
+        //      window.plugins.socialsharing.share('Some text and a link', '', '', 'http://www.nu.nl');
+            }
+        });
+    }
+}
 
 
 //Function that invokes device camera app and captures output from the camera app
