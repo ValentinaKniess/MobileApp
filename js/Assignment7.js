@@ -56,10 +56,23 @@ function MenuChoice(selection)
 }
 
 
-//Taking a picture and sharing it on the SocialShare app
+{//Taking a picture and sharing it on the SocialShare app
     
     //Function that invokes device camera app and captures output from the camera app
-   
+    function CapturePic()
+    {
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 20, destinationtype: destinationtype.FILE_URI, saveToPhotoAlbum: true });
+        //The onSuccess parameter is the function that is called when the camera app operates successfully
+        //The onFail parameter is the function that is called when no picture is returned
+        //The other parameters indicate how the picture is to be handled
+    }
+    function onSuccess(imageURI)
+    {
+        var thumbnaildisplay = document.getElementById("thumbnail");
+        thumbnaildisplay.style.visibility = "visible";
+        thumbnaildisplay.style.display = "block";
+        thumbnaildisplay.src = imageURI; //Assigns the picture to the image source property of the image on the web page
+    }
         //SocialShare app
     function socialshare()
     {
@@ -75,7 +88,7 @@ function MenuChoice(selection)
                 var sub = document.getElementById("subject").value;
                 var mesg = document.getElementById("message").value;
                 
-                window.plugins.socialsharing.share(mesg, sub, imageURI, null, function(){alert("all good!")}, function(e){alert("error: " + e)});
+                window.plugins.socialsharing.share(mesg, sub, thumbnailimgsrc, null, function(){alert("all good!")}, function(e){alert("error: " + e)});
         // alternative usage:
 
         // 1) a local image from anywhere else (if permitted):
@@ -89,7 +102,7 @@ function MenuChoice(selection)
             }
         });
     }
-
+}
 
 //Function that checks the network connection and displays an alert
 function checkConnection()
