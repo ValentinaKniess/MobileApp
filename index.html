@@ -11,7 +11,7 @@
         var objContact;
         var picturesource;
         var destinationtype;
-        var copypic;
+        copypic = imgURI;
         
         document.addEventListener("deviceready",onDeviceReady,false);
         
@@ -19,7 +19,7 @@
         {
             picturesource = navigator.camera.PictureSourceType;
             destinationtype = navigator.camera.DestinationType;
-            copypic = imgURI;
+            
             objContact = navigator.contacts.create();
         }
     </script>
