@@ -75,7 +75,7 @@ function MenuChoice(selection)
                 var sub = document.getElementById("subject").value;
                 var mesg = document.getElementById("message").value;
                 
-                window.plugins.socialsharing.share(mesg, sub, thumbnaildisplay, null, function(){alert("all good!")}, function(e){alert("error: " + e)});
+                window.plugins.socialsharing.share(mesg, sub, imageURI, null, function(){alert("all good!")}, function(e){alert("error: " + e)});
         // alternative usage:
 
         // 1) a local image from anywhere else (if permitted):
