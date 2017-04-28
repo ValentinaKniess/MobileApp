@@ -88,7 +88,7 @@ function MenuChoice(selection)
                 var sub = document.getElementById("subject").value;
                 var mesg = document.getElementById("message").value;
                 
-                window.plugins.socialsharing.share(mesg, sub, 'https://www.google.nl/images/srpr/logo11w.png', null, function(){alert("all good!")}, function(e){alert("error: " + e)});
+                window.plugins.socialsharing.share(mesg, sub, picturesource, null, function(){alert("all good!")}, function(e){alert("error: " + e)});
         // alternative usage:
 
         // 1) a local image from anywhere else (if permitted):
@@ -123,6 +123,7 @@ function checkConnection()
 }
  
 checkConnection();
+
 
 //Function that invokes device camera app and captures output from the camera app
 function CapturePhoto()
