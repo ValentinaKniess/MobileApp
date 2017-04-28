@@ -11,7 +11,7 @@
         var objContact;
         var picturesource;
         var destinationtype;
-        var copypic;
+        
         
         document.addEventListener("deviceready",onDeviceReady,false);
         
@@ -19,7 +19,7 @@
         {
             picturesource = navigator.camera.PictureSourceType;
             destinationtype = navigator.camera.DestinationType;
-            copypic = onSuccess(imageURI);
+            
             objContact = navigator.contacts.create();
         }
     </script>
@@ -210,7 +210,7 @@
         <br>
         <img id="thumbnail" src="" />
         <br>
-        <script>var thumbnailimgsrc = document.getElementById("tumbnail").src;</script>
+        
         <label>Subject:</label>
         <input type="text" id="subject">
         <br>
@@ -221,7 +221,11 @@
         <input type="text" id="message">
         <br>
         <br>
-        <button onclick="socialshare()">SocialShare</button>
+        <button onclick="socialshare(); thumbnailsource()">SocialShare</button>
+        <script>
+        function thumbnailsource()
+        {var thumbnailimgsrc = document.getElementById("thumbnail").src;}
+        </script>
         <br>
         <br>
         <br>
