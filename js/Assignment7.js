@@ -9,6 +9,7 @@ function MenuChoice(selection)
     document.getElementById("section8").style.display = "none";
     document.getElementById("section9").style.display = "none";
     document.getElementById("section10").style.display = "none";
+    document.getElementById("section11").style.display = "none";
     document.getElementById("section5").style.display = "none";
     switch (selection)
     {
@@ -40,6 +41,9 @@ function MenuChoice(selection)
             break;
         case "Section 10":
             document.getElementById("section10").style.display = "block";
+            break;
+        case "Section 11":
+            document.getElementById("section11").style.display = "block";
             break;
         case "Section 5":
             document.getElementById("section5").style.display = "block";  //makes the section (about) visable
@@ -84,7 +88,7 @@ function MenuChoice(selection)
                 var sub = document.getElementById("subject").value;
                 var mesg = document.getElementById("message").value;
                 
-                window.plugins.socialsharing.share(mesg, sub, 'https://www.google.nl/images/srpr/logo11w.png', null, function(){alert("sent!")}, function(e){alert("error: " + e)});
+                window.plugins.socialsharing.share(mesg, sub, 'https://www.google.nl/images/srpr/logo11w.png', null, function(){alert("all good!")}, function(e){alert("error: " + e)});
         // alternative usage:
 
         // 1) a local image from anywhere else (if permitted):
@@ -100,6 +104,25 @@ function MenuChoice(selection)
     }
 }
 
+//Function that checks the network connection and displays an alert
+function checkConnection()
+{
+    var networkState = navigator.connection.type;
+ 
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.CELL]     = 'Cell generic connection';
+    states[Connection.NONE]     = 'No network connection';
+ 
+    alert('Connection type: ' + states[networkState]);
+}
+ 
+checkConnection();
 
 //Function that invokes device camera app and captures output from the camera app
 function CapturePhoto()

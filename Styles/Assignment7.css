@@ -123,6 +123,19 @@ body {background-image: url("../images/SnowFlackBackground2.jpg")}
         border-width: thick;
         text-align: center;
     }
+#section11
+    {
+        display: none;
+        position: relative;
+        width: 80%;
+        margin: 0 auto;      
+        overflow: scroll;
+        background-color: #e5ffff;
+        border: ridge;
+        border-color: #80ffff;
+        border-width: thick;
+        text-align: center;
+    }
     
 #section5
     {
