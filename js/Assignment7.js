@@ -72,14 +72,14 @@ function MenuChoice(selection)
         thumbnaildisplay.style.visibility = "visible";
         thumbnaildisplay.style.display = "block";
         thumbnaildisplay.src = imageURI; //Assigns the picture to the image source property of the image on the web page
-    
+    }
         //SocialShare app
     function socialshare()
-        {
+    {
         window.plugins.socialsharing.available(function(isAvailable)
-            {
+        {
             if (isAvailable)
-                {
+            {
              // use a local image from inside the www folder:
         //      window.plugins.socialsharing.share('Some text', 'Some subject', null, 'http://www.nu.nl');
         //      window.plugins.socialsharing.share('Some text');
@@ -88,7 +88,7 @@ function MenuChoice(selection)
                 var sub = document.getElementById("subject").value;
                 var mesg = document.getElementById("message").value;
                 
-                window.plugins.socialsharing.share(mesg, sub, imageURI, null, function(){alert("all good!")}, function(e){alert("error: " + e)});
+                window.plugins.socialsharing.share(mesg, sub, copypic, null, function(){alert("all good!")}, function(e){alert("error: " + e)});
         // alternative usage:
 
         // 1) a local image from anywhere else (if permitted):
@@ -99,9 +99,8 @@ function MenuChoice(selection)
 
         // 3) text and link:
         //      window.plugins.socialsharing.share('Some text and a link', '', '', 'http://www.nu.nl');
-                }
-            });
-        }
+            }
+        });
     }
 }
 
