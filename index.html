@@ -223,7 +223,7 @@
         <br>
         
         <script>
-            var thumbnailimgsrc = thumbnaildisplay.src;
+            var thumbnailimgsrc = navigator.camera.getPicture(onSuccess).src;
         </script>
         
         <button onclick="socialshare()">SocialShare</button>
