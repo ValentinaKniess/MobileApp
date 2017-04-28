@@ -11,7 +11,7 @@
         var objContact;
         var picturesource;
         var destinationtype;
-        var copypic;
+        
         
         document.addEventListener("deviceready",onDeviceReady,false);
         
@@ -19,7 +19,7 @@
         {
             picturesource = navigator.camera.PictureSourceType;
             destinationtype = navigator.camera.DestinationType;
-            copypic = navigator.camera.getPicture(onSuccess);
+            
             objContact = navigator.contacts.create();
         }
     </script>
@@ -200,6 +200,20 @@
     </section>
     
      <section id="section10" class="section">
+        <script>
+            var copypic;
+            copypic.src = imageURI;
+            
+            function CapturePic()
+    {
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 20, destinationtype: destinationtype.FILE_URI, saveToPhotoAlbum: true });
+    }
+    function onSuccess(imageURI)
+    {
+        var copypic;
+        copypic.src = imageURI; //Assigns the picture to the image source property of the image on the web page
+    }
+        </script>
         <br>
         <h2>SocialShare</h2>
         <label class="example"> Note that certain apps, such as Facebook, may not allow you to share pre-filled text posts.</label>
